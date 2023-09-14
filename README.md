@@ -1,5 +1,5 @@
 # Data Science Case Study: Supplier Audit Results Prediction
-Data Science Case Study November 2022 / Think Tank
+Data Science Case Study / Think Tank
 
 **Context**: Imagine you are a Data Scientist in the Supply Chain Delivery Assurance Department of BMW Group. Before and during new production of model cars, supplier audits are conducted by audit experts, and it is an important process to ensure the reliability of suppliers. Selected suppliers must go through the audit process before they are fully entrusted to deliver parts for BMW production processes. You are responsible for predicting the supplier audit results so that the audit experts can foresee the qualification of certain suppliers and know if there will be enough qualified suppliers in the future.
 
@@ -64,14 +64,19 @@ Two sample datasets are available for this case study:
 
 ## Tasks
 
-1. Explore the datasets, if necessary clean them, keep and / or create relevant features.
-2. Analyze the features, what statements can you make? 
-3. Train prediction models to predict the most recent results (green, yellow or red) of the supplier audit process (for certain suppliers and certain derivatives). Note that T1/T2/T3 columns cannot be explicitly used as input features.
-4. How good is the performance of your selected model? How would you tweak it?
-5. Given the results of the analysis and prediction, how would you show and explain them to the audit experts? What advice would you give to support business decisions?
+1. Explore the datasets and write down your assumptions.
+2. Preprocess the data. Define the target and predictor variables. List them.
+3. Explain why did you select those predictors, what is your hypothesis.
+4. Predict the latest results (green, yellow or red) of the supplier audit process, for all the (supplier, derivative) pairs. Note that T1/T2/T3 shouldn't be used directly as predictors.
+5. Show how did you select the best model.
+6. Give business recommendations based on your model.
+7. Describe how would you maintain the model in the future and how could you improve it.
 
-*Hint: Visulization can be helpful to show your analysis and prediction results.*
+Send us your solution either in Python or R.
 
-*Optional: You can also implement / explain a Causal Machine Learning approach (e.g. python libraries: DoWhy, DECI, PyWhy) to increase the model explainability.*
+## Next steps
+After submitting your case study, you will be presenting your solution to a small group of both technical and non-technical people.
+Make sure to keep your explanations short and simple. We will ask the techinal questions when needed.
+*Hint: Visulization can be helpful to show your analysis and results.*
 
-# Enjoy the task and blow our minds!
+# Enjoy the case and blow our minds!
