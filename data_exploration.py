@@ -2,12 +2,10 @@
 '''
 Data Exploration for BMW thinktank
 '''
+from source import *
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
-AuditHistory = pd.read_csv('./Data/AuditHistory.csv')                   # 7690 entries
-SupplierPerformance = pd.read_csv('./Data/SupplierPerformance.csv')     # 5823 entries
 
 AuditHistory.head()
 SupplierPerformance.head()
@@ -15,17 +13,33 @@ SupplierPerformance.head()
 Suppliers = list(AuditHistory['SupplierId'].unique())               # 818 Suppliers
 Derivatives = list(AuditHistory['DerivativeName'].unique())         # 75 Derivatives
 ProductionLines = list(AuditHistory['ProductionLine'].unique())     # 4 Production Lines
+Regions = list(AuditHistory['DerivativeRegion'].unique())           # 6 Regions
 
-S_j = {j:[] for j in Derivatives}
-D_i = {i:[] for i in Suppliers}
+################ Explore data ################
+### 1. Missing data
+Audits_nan_counts = AuditHistory.isna().sum()
+Suppliers_nan_counts = SupplierPerformance.isna().sum()
+print(Audits_nan_counts)
+print('----------------')
+print(Suppliers_nan_counts)
 
-for i in AuditHistory.index: 
-    if AuditHistory['DerivativeName'][i] not in D_i[AuditHistory['SupplierId'][i]]:
-        S_j[AuditHistory['DerivativeName'][i]].append(AuditHistory['SupplierId'][i])
-        D_i[AuditHistory['SupplierId'][i]].append(AuditHistory['DerivativeName'][i])
+# Re-code the BadSupplierIndicator column
+SupplierPerformance['BadSupplierIndicator']=SupplierPerformance['BadSupplierIndicator'].fillna(0).map({'bad':1,0:0})
 
-SupplierPerformance =  SupplierPerformance[SupplierPerformance['SupplierId'].isin(Suppliers)]
 
+
+
+
+
+
+# plt.matshow(SupplierPerformance.corr())
+# plt.title('Correlogram'); plt.xlabel('Features');plt.ylabel('Features')
+# plt.show()
+
+
+# %%
+
+# %%
 
 #%% 2. Preprocess
 
