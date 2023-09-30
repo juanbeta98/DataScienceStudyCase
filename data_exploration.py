@@ -6,6 +6,7 @@ from source import *
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from copy import copy
 
 AuditHistory.head()
 SupplierPerformance.head()
@@ -27,14 +28,14 @@ print(Suppliers_nan_counts)
 SupplierPerformance['BadSupplierIndicator']=SupplierPerformance['BadSupplierIndicator'].fillna(0).map({'bad':1,0:0})
 
 
+new_df = copy(AuditHistory)
+new_df.join(SupplierPerformance,on='SupplierId',how='left')
 
 
 
-
-
-# plt.matshow(SupplierPerformance.corr())
-# plt.title('Correlogram'); plt.xlabel('Features');plt.ylabel('Features')
-# plt.show()
+plt.matshow(SupplierPerformance.corr())
+plt.title('Correlogram'); plt.xlabel('Features');plt.ylabel('Features')
+plt.show()
 
 
 # %%
