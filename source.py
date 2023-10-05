@@ -192,7 +192,6 @@ def clean_observations(x,y):
     y_cleaned = y.loc[x_cleaned.index]
     return x_cleaned,y_cleaned
 
-
 def evaluate_models(X,y):
     # List of models to evaluate
     models = [
@@ -206,8 +205,6 @@ def evaluate_models(X,y):
         scores = cross_val_score(model, X, y, cv=5)  # 5-fold cross-validation
         print(f'{model_name}: Mean Accuracy = {round(scores.mean(),5)}, Standard Deviation = {round(scores.std(),5)}')
     
-
-
 def tuneRandomForest(x,y):
     # Define the parameter grid for Random Forest
     param_grid_rf = {
@@ -234,7 +231,6 @@ def tuneRandomForest(x,y):
     model = RandomForestClassifier(**grid_search_rf.best_params_)
     model.fit(x,y)
     return model
-
 
 def tuneLogisticRegression(x,y):
     # Define the parameter grid for Logistic Regression
@@ -272,7 +268,6 @@ def tuneLogisticRegression(x,y):
     model = LogisticRegression(penalty=grid_search_lr.best_params_['penalty'],C=grid_search_lr.best_params_['C'])
     model.fit(x,y)
     return model 
-
 
 def PredictResult(q1,q2,q3):
     if q3 != 0:
